@@ -1,0 +1,3 @@
+  // https://drive.google.com/uc?export=view&id=XXX
+  in json, only write image id
+   "logo_gdrive_id": -> just have gdrive code: ex 13kpcQaqNKfy_sxDcJQIcwkR3W_qys0S2
