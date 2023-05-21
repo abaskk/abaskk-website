@@ -1,0 +1,73 @@
+{
+	"name": "Amruth",
+	"year": "Third",
+	"resume_link": "",
+	"github_link": "https://github.com/abaskk",
+	"linkedin": "https://linkedin.com",
+	"email": "amruthharibaskar@gmail.com",
+	"description": "oqoihdoqidhwdoiwqhdhqwh dbqw9uhdqwbd dqd9qwd 9 dq9d9qhd9 qhd9qdh9qwhd9qwhd9hd9q",
+	"skills": [
+		"Javascript",
+		"C++",
+		"HTML",
+		"CSS"
+	],
+	"projects": [
+		{
+			"title": "Dinosaur age calculator",
+			"technologies": [
+				"AI",
+				"CSS"
+			],
+			"description": "wdhiwdiwjdidiwd",
+			"repo_link": "https://google.ca",
+			"demo_link": "https://google.ca"
+		},
+		{
+			"title": "Quantum AI Compiler",
+			"technologies": [
+				"AI",
+				"CSS"
+			],
+			"description": "wdhiwdiwjdidiwd hdq dh9q hdqhd hwd uqwhdq wdhwid hqwi  wdwq dhiwdhiwqdwq d qwdqwd iqwhdiwqdiuhqwd wqdiwhdhd uwqduwihdqi duqwiwhdhiwqhdiwqhdih",
+			"repo_link": "https://google.ca",
+			"demo_link": "https://google.ca"
+		},
+		{
+			"title": "C++ Compiler",
+			"technologies": [
+				"Concurrency",
+				"C++"
+			],
+			"description": "Developed a quantum AI compiler using concurrency and html, tested Using Valgrind",
+			"repo_link": "https://google.ca",
+			"demo_link": "https://google.ca"
+		},
+		{
+			"title": "C++ Compiler",
+			"technologies": [
+				"Concurrency",
+				"C++"
+			],
+			"description": "wdhiwdiwjdidiwd hdq dh9q hdqhd hwd uqwhdq wdhwid hqwi  wdwq dhiwdhiwqdwq d qwdqwd iqwhdiwqdiuhqwd wqdiwhdhd uwqduwihdqi duqwiwhdhiwqhdiwqhdih",
+			"repo_link": "https://google.ca",
+			"demo_link": "https://google.ca"
+		}
+	],
+	"experience": [
+		{
+			"company": "D-Wave Systems Inc",
+			"logo_gdrive_id": "13kpcQaqNKfy_sxDcJQIcwkR3W_qys0S2",
+			"start_date": "May 2022",
+			"end_date": "Aug 2022",
+			"title": "quantum ai engineer",
+			"team": "Platform Team",
+			"technologies_used": [
+				"C++",
+				"Javascript",
+				"Ruby on Rail",
+				"Apache Kafka"
+			]
+		}
+	]
+}

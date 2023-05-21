@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const uuid = require("uuid")
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express()
 app.use(express.json())
@@ -18,8 +19,7 @@ app.use(
 
 const PORT = process.env.PORT || 4000
 
-const password_file = fs.readFileSync("password.txt")
-const hashed_pass = password_file.toString()
+
 
 userSessions = {}
 
@@ -35,7 +35,7 @@ app.get('/get_info', (req, res) => {
 
 app.post("/auth",(req,res) => {
     const password = req.body["password"];
-    bcrypt.compare(password,hashed_pass, (err, result) => {
+    bcrypt.compare(password,process.env.PASSWORD, (err, result) => {
         if(err){
           console.log(err)
           res.send(false)
