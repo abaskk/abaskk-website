@@ -1,0 +1,30 @@
+version: '3'
+services:
+  client:
+    build: ./client
+    ports:
+      - "5800:5800"
+    container_name: client-docker
+    restart: always
+    links:
+      - server
+  server: 
+    build: ./server
+    # persist info.json data
+    volumes:
+      - "./server/info.json:/usr/src/app/server/info.json"
+    ports:
+      - "8080:8080"
+    container_name: server-docker
+    restart: always
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - client
+      - server
+    restart: always

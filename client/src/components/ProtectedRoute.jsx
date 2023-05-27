@@ -19,7 +19,7 @@ const ProtectedRoute = ({children}) =>{
 
     const hasCookie = async () =>{
         try{
-            const checkCookie = await api.get("http://localhost:4000/has_permission")
+            const checkCookie = await api.get("http://localhost:8080/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)
 

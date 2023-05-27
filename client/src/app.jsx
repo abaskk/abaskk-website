@@ -20,7 +20,7 @@ const App = () =>{
     const [loading, setLoad] = useState(true)
 
     const fetchData = async () =>{
-        const allInfo = await api.get("http://localhost:4000/info")
+        const allInfo = await api.get("http://localhost:8080/info")
         setUserInfo(allInfo.data)
         setLoad(false)
     }

@@ -20,7 +20,7 @@ const Login = () => {
     const loginStatus = async (e) => {
         e.preventDefault()
         try{
-          const response = await api.post("http://localhost:4000/auth",
+          const response = await api.post("http://localhost:8080/auth",
             {password:pass})
           const loginSuccess = response.data
           if (!loginSuccess){

@@ -24,7 +24,7 @@ const Admin = (props) => {
         }
 
         try{
-            const response = await api.post("http://localhost:4000/modify_data",
+            const response = await api.post("http://localhost:8080/modify_data",
               {newJson:userInfo})
             if(response.data == "failed"){
                 setErrMsg("Server write failed, try later")

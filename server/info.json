@@ -3,70 +3,120 @@
 	"year": "Third",
 	"resume_link": "",
 	"github_link": "https://github.com/abaskk",
-	"linkedin": "https://linkedin.com",
+	"linkedin": "https://www.linkedin.com/in/amruth-baskar/",
 	"email": "amruthharibaskar@gmail.com",
-	"description": "oqoihdoqidhwdoiwqhdhqwh dbqw9uhdqwbd dqd9qwd 9 dq9d9qhd9 qhd9qdh9qwhd9qwhd9hd9q",
+	"description": "Hi! I'm currently a third year CS student at the University of Waterloo. I'm currently looking for Fall 2023 and Summer 2024 internships. In my past co-op terms I have worked on backend, fullstack and platform development. Recently, I have been exploring low-level and systems programming.",
 	"skills": [
-		"Javascript",
+		"Python",
 		"C++",
-		"HTML",
-		"CSS"
+		"SQL / NoSQL",
+		"AWS",
+		"Kubernetes",
+		"Docker",
+		"Node.js",
+		"CI / CD"
 	],
 	"projects": [
 		{
-			"title": "Dinosaur age calculator",
+			"title": "Personal Website",
 			"technologies": [
-				"AI",
-				"CSS"
+				"Docker",
+				"React",
+				"Express",
+				"JWT"
 			],
-			"description": "wdhiwdiwjdidiwd",
-			"repo_link": "https://google.ca",
-			"demo_link": "https://google.ca"
+			"description": "A simple fullstack website with authentication and an admin page for me to add information on the fly. The frontend utilizes React,Tailwind and the backend is a simple Express API.",
+			"repo_link": "",
+			"demo_link": ""
 		},
 		{
-			"title": "Quantum AI Compiler",
+			"title": "Word Search Solver",
 			"technologies": [
-				"AI",
-				"CSS"
+				"Python",
+				"Flask",
+				"GCP"
 			],
-			"description": "wdhiwdiwjdidiwd hdq dh9q hdqhd hwd uqwhdq wdhwid hqwi  wdwq dhiwdhiwqdwq d qwdqwd iqwhdiwqdiuhqwd wqdiwhdhd uwqduwihdqi duqwiwhdhiwqhdiwqhdih",
-			"repo_link": "https://google.ca",
-			"demo_link": "https://google.ca"
-		},
-		{
-			"title": "C++ Compiler",
-			"technologies": [
-				"Concurrency",
-				"C++"
-			],
-			"description": "Developed a quantum AI compiler using concurrency and html, tested Using Valgrind",
+			"description": "A simple word search solver that utilizes OCR and image pre-processing to extract the word search grid from an image. The backend service utilizes grid search algorithms to find words. Currently working on a migration of the backend to C++ for faster response times",
 			"repo_link": "https://google.ca",
 			"demo_link": "https://google.ca"
 		},
 		{
 			"title": "C++ Compiler",
 			"technologies": [
-				"Concurrency",
 				"C++"
 			],
-			"description": "wdhiwdiwjdidiwd hdq dh9q hdqhd hwd uqwhdq wdhwid hqwi  wdwq dhiwdhiwqdwq d qwdqwd iqwhdiwqdiuhqwd wqdiwhdhd uwqduwihdqi duqwiwhdhiwqhdiwqhdih",
+			"description": "A C++ Compiler for a subset of C that supports memory allocation, pointers and arrays.",
+			"repo_link": "https://google.ca",
+			"demo_link": "https://google.ca"
+		},
+		{
+			"title": "C++ Interpreter",
+			"technologies": [
+				"C++",
+				"Algorithms"
+			],
+			"description": "A C++ interpreter for a simple language that supports conditionals and arrays. Utilizes lexing, Pratt Parsing and tree-walking to interpret the produced AST.",
 			"repo_link": "https://google.ca",
 			"demo_link": "https://google.ca"
 		}
 	],
 	"experience": [
 		{
-			"company": "D-Wave Systems Inc",
-			"logo_gdrive_id": "13kpcQaqNKfy_sxDcJQIcwkR3W_qys0S2",
+			"company": "Amazon",
+			"logo_gdrive_id": "1zEEsRbbSOqVLAyJXcdd9LlkH7b3yZC76",
+			"start_date": "May 2023",
+			"end_date": "Aug 2023",
+			"title": "Software Engineering Intern",
+			"team": "S2I",
+			"technologies_used": [
+				"Java",
+				"Python",
+				"AWS"
+			]
+		},
+		{
+			"company": "Vidyard",
+			"logo_gdrive_id": "13o9akGB02d3Ju32i8czzkTdMNdL8BymX",
 			"start_date": "May 2022",
 			"end_date": "Aug 2022",
-			"title": "quantum ai engineer",
+			"title": "Software Engineering Intern",
 			"team": "Platform Team",
 			"technologies_used": [
-				"C++",
-				"Javascript",
-				"Ruby on Rail",
-				"Apache Kafka"
+				"Ruby on Rails",
+				"Docker",
+				"AWS",
+				"Kubernetes",
+				"GraphQL"
+			]
+		},
+		{
+			"company": "Gradient Ascent",
+			"logo_gdrive_id": "1UxuOIdPpuny7TAvVznIDlcpw1Nh_8PwH",
+			"start_date": "May 2021",
+			"end_date": "Aug 2021",
+			"title": "Software Engineering Intern",
+			"team": "Startup",
+			"technologies_used": [
+				"Ruby on Rails",
+				"Python",
+				"Flask",
+				"PyTorch",
+				"GCP"
+			]
+		},
+		{
+			"company": "Netramark",
+			"logo_gdrive_id": "13kpcQaqNKfy_sxDcJQIcwkR3W_qys0S2",
+			"start_date": "May 2020",
+			"end_date": "Aug 2020",
+			"title": "Software Engineering Intern",
+			"team": "Startup",
+			"technologies_used": [
+				"Python",
+				"Flask",
+				"AWS",
+				"NetworkX",
+				"Numpy"
 			]
 		}
 	]

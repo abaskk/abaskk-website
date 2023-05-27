@@ -1,0 +1,7 @@
+.dockerignore
+config
+build
+# save time by not copying ode_modules -> container npm install creates node_modules
+node_modules
+Dockerfile
+.env
