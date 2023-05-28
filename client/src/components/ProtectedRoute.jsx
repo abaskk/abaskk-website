@@ -19,7 +19,7 @@ const ProtectedRoute = ({children}) =>{
 
     const hasCookie = async () =>{
         try{
-            const checkCookie = await api.get("http://localhost:8080/has_permission")
+            const checkCookie = await api.get("http://ec2-3-92-200-251.compute-1.amazonaws.com:8080/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)
 

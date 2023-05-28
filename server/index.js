@@ -13,7 +13,8 @@ app.use(cookieParser())
 app.use(
     cors({
       credentials: true,
-      origin: ["http://localhost:5800"]
+      origin: ["http://ec2-3-92-200-251.compute-1.amazonaws.com/"]
+      //origin: ["http://localhost:5800"]
     })
   );
 
