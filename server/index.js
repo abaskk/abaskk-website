@@ -12,8 +12,8 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(
     cors({
-      credentials: true
-      //origin: ["http://localhost:5800"]
+      credentials: true,
+      origin: ["https://wonderful-conkies-621172.netlify.app/*"]
     })
   );
 
