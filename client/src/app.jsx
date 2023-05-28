@@ -21,7 +21,7 @@ const App = () =>{
     const [loading, setLoad] = useState(true)
 
     const fetchData = async () =>{
-        const allInfo = await api.get("http://ec2-44-216-125-228.compute-1.amazonaws.com:8080/info")
+        const allInfo = await api.get("https://abaskk-backend.onrender.com/info")
         setUserInfo(allInfo.data)
         setLoad(false)
     }

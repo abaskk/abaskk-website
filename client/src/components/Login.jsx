@@ -20,7 +20,7 @@ const Login = () => {
     const loginStatus = async (e) => {
         e.preventDefault()
         try{
-          const response = await api.post("http://ec2-44-216-125-228.compute-1.amazonaws.com:8080/auth",
+          const response = await api.post("https://abaskk-backend.onrender.com/auth",
             {password:pass})
           const loginSuccess = response.data
           if (!loginSuccess){
