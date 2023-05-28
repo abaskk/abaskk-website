@@ -13,9 +13,9 @@ app.use(cookieParser())
 app.use(
     cors({
       credentials: true,
-      origin: ["http://ec2-18-206-156-112.compute-1.amazonaws.com",
-               "http://ec2-18-206-156-112.compute-1.amazonaws.com/login",
-               "http://ec2-18-206-156-112.compute-1.amazonaws.com/admin"],
+      origin: ["http://ec2-44-216-125-228.compute-1.amazonaws.com",
+               "http://ec2-44-216-125-228.compute-1.amazonaws.com/login",
+               "http://ec2-44-216-125-228.compute-1.amazonaws.com/admin"],
       allowedHeaders: 'Content-Type, Authorization'
     })
   );
