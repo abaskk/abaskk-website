@@ -13,6 +13,7 @@ app.use(cookieParser())
 app.use(
     cors({
       credentials: true,
+      origin: ["http://localhost:5800"]
     })
   );
 
@@ -25,12 +26,6 @@ userSessions = {}
 
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
-
-
-app.get('/get_info', (req, res) => {
-    res.send(JSON.parse(info))
-    res.end()
-  })
 
 
 app.post("/auth",(req,res) => {
