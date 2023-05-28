@@ -24,7 +24,7 @@ const Admin = (props) => {
         }
 
         try{
-            const response = await api.post("http://server:8080/modify_data",
+            const response = await api.post("http://ec2-3-92-200-251.compute-1.amazonaws.com:8080/modify_data",
               {newJson:userInfo})
             if(response.data == "failed"){
                 setErrMsg("Server write failed, try later")
