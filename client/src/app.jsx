@@ -20,7 +20,7 @@ const App = () =>{
     const [loading, setLoad] = useState(true)
 
     const fetchData = async () =>{
-        const allInfo = await api.get("http://ec2-3-92-200-251.compute-1.amazonaws.com:8080/info")
+        const allInfo = await api.get("http://server:8080/info")
         setUserInfo(allInfo.data)
         setLoad(false)
     }

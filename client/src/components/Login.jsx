@@ -20,7 +20,7 @@ const Login = () => {
     const loginStatus = async (e) => {
         e.preventDefault()
         try{
-          const response = await api.post("http://ec2-3-92-200-251.compute-1.amazonaws.com:8080/auth",
+          const response = await api.post("http://server:8080/auth",
             {password:pass})
           const loginSuccess = response.data
           if (!loginSuccess){
