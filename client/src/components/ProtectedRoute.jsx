@@ -19,7 +19,7 @@ const ProtectedRoute = ({children}) =>{
 
     const hasCookie = async () =>{
         try{
-            const checkCookie = await api.get("https://abaskk-backend.onrender.com/has_permission")
+            const checkCookie = await api.get("http://ec2-18-206-156-112.compute-1.amazonaws.com:8080/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)
 

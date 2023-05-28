@@ -13,7 +13,10 @@ app.use(cookieParser())
 app.use(
     cors({
       credentials: true,
-      origin: ["https://wonderful-conkies-621172.netlify.app/*"]
+      origin: ["http://ec2-18-206-156-112.compute-1.amazonaws.com",
+               "http://ec2-18-206-156-112.compute-1.amazonaws.com/login",
+               "http://ec2-18-206-156-112.compute-1.amazonaws.com/admin"],
+      allowedHeaders: 'Content-Type, Authorization'
     })
   );
 

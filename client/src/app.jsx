@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Routes,Route } from "react-router-dom";
 import axios from "axios"
 
+// https://web.dev/how-to-use-local-https/
 
 const api = axios.create({
     withCredentials: true,
@@ -20,7 +21,7 @@ const App = () =>{
     const [loading, setLoad] = useState(true)
 
     const fetchData = async () =>{
-        const allInfo = await api.get("https://abaskk-backend.onrender.com/info")
+        const allInfo = await api.get("http://ec2-18-206-156-112.compute-1.amazonaws.com:8080/info")
         setUserInfo(allInfo.data)
         setLoad(false)
     }
