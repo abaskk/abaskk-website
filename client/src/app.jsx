@@ -8,12 +8,7 @@ import axios from "axios"
 
 // https://web.dev/how-to-use-local-https/
 
-const api = axios.create({
-    withCredentials: true,
-    headers: {
-        "Content-type": "application/json",
-    },
-  });
+
 
 const App = () =>{
 
@@ -21,6 +16,11 @@ const App = () =>{
     const [loading, setLoad] = useState(true)
 
     const fetchData = async () =>{
+        const api = axios.create({
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
         const allInfo = await api.get("https://abaskk-backend.onrender.com/info")
         setUserInfo(allInfo.data)
         setLoad(false)

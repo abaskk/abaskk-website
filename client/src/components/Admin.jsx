@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-const api = axios.create({
-    withCredentials: true,
-    headers: {
-        "Content-type": "application/json",
-    },
-  });
+
 
 const Admin = (props) => {
 
@@ -17,6 +12,14 @@ const Admin = (props) => {
 
     const updateUserData = async (e) => {
         e.preventDefault()
+        const token = localStorage.getItem("jwtToken");
+
+        const api = axios.create({
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        });
+
         try{
             JSON.parse(userInfo)
         }catch(err){
@@ -24,12 +27,11 @@ const Admin = (props) => {
         }
 
         try{
+
             const response = await api.post("https://abaskk-backend.onrender.com/modify_data",
               {newJson:userInfo})
-            if(response.data == "failed"){
+            if(response.data === false){
                 setErrMsg("Server write failed, try later")
-            }else if(response.data == "unauthorized access"){
-                setErrMsg("Unauthorized access")
             }else{
                 setErrMsg("Success!")
             }

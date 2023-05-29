@@ -3,12 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const api = axios.create({
-  withCredentials: true,
-  headers: {
-      "Content-type": "application/json",
-  },
-});
+
 
 
 
@@ -20,12 +15,17 @@ const Login = () => {
     const loginStatus = async (e) => {
         e.preventDefault()
         try{
-          const response = await api.post("https://abaskk-backend.onrender.com/auth",
-            {password:pass})
-          const loginSuccess = response.data
-          if (!loginSuccess){
+          const api = axios.create({
+            headers: {
+                "Content-type": "application/json",
+            },
+          });
+          const response = await api.post("https://abaskk-backend.onrender.com/auth",{password:pass})
+          const loginData = response.data
+          if (loginData === "invalid"){
             setErrMsg("Invalid Credentials")
           }else{
+            localStorage.setItem("jwtToken", loginData);
             navigate("/admin")
           }
 

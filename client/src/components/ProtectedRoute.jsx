@@ -3,12 +3,8 @@ import { Navigate} from "react-router-dom"
 import axios from "axios"
 import { useState } from "react";
 
-const api = axios.create({
-    withCredentials: true,
-    headers: {
-        "Content-type": "application/json",
-    },
-  });
+
+
 
 
 
@@ -19,6 +15,14 @@ const ProtectedRoute = ({children}) =>{
 
     const hasCookie = async () =>{
         try{
+            const token = localStorage.getItem("jwtToken");
+            const api = axios.create({
+                headers: {
+                    "Content-type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+            });
+
             const checkCookie = await api.get("https://abaskk-backend.onrender.com/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)

@@ -1,21 +1,48 @@
 const express = require('express')
-const Session = require("./session")
 const fs = require('fs');
 const bcrypt = require('bcrypt');
-const uuid = require("uuid")
-const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require('dotenv').config();
 
+
+const generateAccessToken = (username) => {
+  return jwt.sign({username}, process.env.TOKEN_SECRET, { expiresIn: '6h' });
+}
+
+const authenticateToken = (req_head)=> {
+  const token = req_head && req_head.split(' ')[1]
+  if (token == null){
+    return false
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+    const name = decoded["username"]
+
+    if(name != process.env.USERNAME){
+      return false
+    }
+
+  } catch(err) {
+    return false
+    
+  }
+  return true
+
+}
+
+
+
+
+
+
+
 const app = express()
 app.use(express.json())
-app.use(cookieParser())
 app.use(
     cors({
       credentials: true,
-      origin: ["https://celebrated-pegasus-ad84fe.netlify.app",
-               "https://celebrated-pegasus-ad84fe.netlify.app/admin",
-               "https://celebrated-pegasus-ad84fe.netlify.app/login"],
       allowedHeaders: 'Content-Type, Authorization'
     })
   );
@@ -24,36 +51,34 @@ app.use(
 const PORT = process.env.PORT || 8080
 
 
-
-userSessions = {}
-
-
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
+
+
+app.get("/info", (req,res) => {
+  const info = fs.readFileSync("info.json");
+  const data = info.toString()
+  res.send(JSON.parse(data))
+  res.end()
+
+})
 
 app.post("/auth",(req,res) => {
     const password = req.body["password"];
     bcrypt.compare(password,process.env.PASSWORD, (err, result) => {
         if(err){
           console.log(err)
-          res.send(false)
+          res.send("invalid")
           return
         }
 
         if (result == true){
-            const userId = uuid.v4()
-            const currTime = new Date()
-            // 24 hour cookie
-            const cookieLength = 60 * 60 * 24 * 1000
-            const expiryTime = new Date(currTime.getTime() + cookieLength)
-            const newSess = new Session(userId, expiryTime)
-            userSessions[userId] = newSess
-            res.cookie('uuid', userId, { expires: expiryTime , httpOnly: true });
-            res.send(true)
+            const token = generateAccessToken(process.env.USERNAME);
+            res.json(token)
       
 
         }else{
-            res.send(false)
+            res.send("invalid")
         
         }
         res.end()
@@ -61,65 +86,38 @@ app.post("/auth",(req,res) => {
     });
 })
 
+
+
 app.get("/has_permission", (req,res) => {
-
-    if(!req.cookies){
-      res.send(false)
-      return
-    }
-    const userToken = req.cookies['uuid']
-    if (!userToken){
-      res.send(false)
-      return
-    }
-
-    if(userToken in userSessions === false ){
-      res.send(false)
-      return
-    }else if(userSessions[userToken].hasExpired()){
-      res.send(false)
-      return
-    }else{
-      res.send(true)
-    }
-
+  const validToken = authenticateToken(req.headers['authorization'])
+  if(!validToken){
+    res.send(false)
+    return
+  }
+  res.send(true)
+  res.end()
 })
 
 
-app.get("/info", (req,res) => {
-    const info = fs.readFileSync("info.json");
-    const data = info.toString()
-    res.send(JSON.parse(data))
 
-})
 
 // protected endpoint
 app.post("/modify_data", (req,res) =>{
-  if(!req.cookies){
-    res.send("unauthorized access")
-    return
-  }
-  const userToken = req.cookies['uuid']
-  if(!userToken){
-    res.send("unauthorized access")
+  const validToken = authenticateToken(req.headers['authorization'])
+  if(!validToken){
+    res.send(false)
     return
   }
 
-  if(userToken in userSessions === false ){
-    res.send("unauthorized access")
-    return
-  }else if(userSessions[userToken].hasExpired()){
-    res.send("unauthorized access")
-    return
-  }
   const modData = req.body["newJson"]
   fs.writeFile('info.json', modData, function (err) {
     if(err){
       console.log(err)
-      res.send("failed")
+      res.send(false)
     }
   });
-  res.send("success")
+  res.send(true)
+  res.end()
 
 })
 
