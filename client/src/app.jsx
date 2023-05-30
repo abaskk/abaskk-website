@@ -4,6 +4,7 @@ import Admin from './components/Admin.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import { useEffect, useState } from 'react'
 import { Routes,Route } from "react-router-dom";
+import aboutMe from "./assets/info.json";
 import axios from "axios"
 
 // https://web.dev/how-to-use-local-https/
@@ -22,6 +23,7 @@ const App = () =>{
             },
         });
         const allInfo = await api.get("https://abaskk-backend.onrender.com/info")
+
         setUserInfo(allInfo.data)
         setLoad(false)
     }
@@ -43,7 +45,7 @@ const App = () =>{
             <Route path="/admin"
                 element={
                     <ProtectedRoute>
-                        <Admin userData={userInfo} />
+                        <Admin userData={aboutMe} />
                     </ProtectedRoute>
                 } 
             />
