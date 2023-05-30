@@ -4,7 +4,7 @@
   "description": "A simple service for Amruth's website",
   "main": "index.js",
   "engines": {
-    "node":"14.x"
+    "node":"16.x"
   },
   "scripts": {
     "test": "ignore",
