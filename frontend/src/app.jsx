@@ -22,7 +22,7 @@ const App = () =>{
                 "Content-type": "application/json",
             },
         });
-        const allInfo = await api.get("http://localhost:8080/api/info")
+        const allInfo = await api.get("http://ec2-44-216-125-228.compute-1.amazonaws.com:8080/api/info")
 
         setUserInfo(allInfo.data)
         setLoad(false)
