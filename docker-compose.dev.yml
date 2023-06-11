@@ -1,0 +1,24 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5800:5800"
+    container_name: frontend-docker
+    restart: always
+    links:
+      - backend
+  backend: 
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    # persist info.json data
+    volumes:
+      - "./backend/info.json:/usr/src/app/backend/info.json"
+    ports:
+      - "8080:8080"
+    container_name: backend-docker
+    restart: always
+
