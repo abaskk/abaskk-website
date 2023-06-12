@@ -23,7 +23,7 @@ const ProtectedRoute = ({children}) =>{
                 },
             });
 
-            const checkCookie = await api.get("http://ec2-44-216-125-228.compute-1.amazonaws.com/api/has_permission")
+            const checkCookie = await api.get("http://amruthbaskar.info:8080/api/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)
 
