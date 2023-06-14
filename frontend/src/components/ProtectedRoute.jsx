@@ -23,7 +23,7 @@ const ProtectedRoute = ({children}) =>{
                 },
             });
 
-            const checkCookie = await api.get("http://localhost:8080/api/has_permission")
+            const checkCookie = await api.get("http://amruthbaskar.info:8080/api/has_permission")
             setAdmin(checkCookie.data)
             setLoad(false)
 
