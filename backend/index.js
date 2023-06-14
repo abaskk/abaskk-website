@@ -45,7 +45,6 @@ app.use(
 
 const PORT = process.env.PORT || 8080
 
-console.log(process.env.PASSWORD)
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
 
