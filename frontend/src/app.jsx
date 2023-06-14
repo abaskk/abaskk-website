@@ -22,7 +22,8 @@ const App = () =>{
                 "Content-type": "application/json",
             },
         });
-        const allInfo = await api.get("http://amruthbaskar.info:8080/api/info")
+
+        const allInfo = await api.get(`/api/info`)
 
         setUserInfo(allInfo.data)
         setLoad(false)
