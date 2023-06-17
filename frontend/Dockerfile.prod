@@ -1,16 +1,3 @@
-FROM node:alpine AS build
-
-RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/frontend
-
-WORKDIR /usr/src/app/frontend
-
-COPY package*.json ./
-RUN npm install
-COPY . .
-
-RUN npm run build
-
 FROM ubuntu:18.04
 
 RUN apt update -y \
@@ -21,8 +8,6 @@ RUN apt update -y \
     && apt-get install python-certbot-nginx -y \
     && apt-get clean
 
-COPY --from=build /usr/src/app/frontend/dist /var/www/html
-COPY ./nginx/nginx.conf /etc/nginx/sites-available/default
 EXPOSE 80
 
 CMD [ "nginx", "-g", "daemon off;" ]
