@@ -10,7 +10,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - "./frontend/nginx/nginx.conf:/etc/nginx/sites-available/default"
+      - "./nginx/nginx.conf:/etc/nginx/sites-available/default"
     
   backend: 
     build:
