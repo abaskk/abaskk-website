@@ -23,7 +23,7 @@ const App = () =>{
             },
         });
 
-        const allInfo = await api.get(`http://amruthbaskar.info:8080/api/info`)
+        const allInfo = await api.get(`https://amruthbaskar.info:8080/api/info`)
 
         setUserInfo(allInfo.data)
         setLoad(false)
