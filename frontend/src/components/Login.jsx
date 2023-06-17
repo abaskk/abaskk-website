@@ -20,7 +20,7 @@ const Login = () => {
                 "Content-type": "application/json",
             },
           });
-          const response = await api.post("http://amruthbaskar.info:8080/api/api/auth",{password:pass})
+          const response = await api.post("http://amruthbaskar.info:8080/api/auth",{password:pass})
           const loginData = response.data
           if (loginData === "invalid"){
             setErrMsg("Invalid Credentials")
