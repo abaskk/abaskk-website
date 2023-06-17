@@ -3,4 +3,3 @@ config
 build
 Dockerfile
 node_modules
-nginx
