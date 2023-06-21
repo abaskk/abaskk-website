@@ -11,7 +11,8 @@ services:
       - backend
     volumes:
       - "./frontend/dist:/var/www/html"
-      - "./frontend/nginx/default.conf:/etc/nginx/sites-available/default"
+      - "./frontend/letsencrypt:/etc/letsencrypt"
+      - "./frontend/nginx/default.conf:/etc/nginx/sites-available/default:consistent"
     
   backend: 
     build:
@@ -21,4 +22,4 @@ services:
     volumes:
       - "./backend/info.json:/usr/src/app/backend/info.json"
     ports:
-      - "8080:8080"
+      - '8080:80'
