@@ -2,10 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
-
-
-
+import { backendUrl } from '../utils/backend';
 
 const Login = () => {
     const [pass, setPass] = useState('');
@@ -20,7 +17,7 @@ const Login = () => {
                 "Content-type": "application/json",
             },
           });
-          const response = await api.post("/api/auth",{password:pass})
+          const response = await api.post(`${backendUrl}/api/auth`,{password:pass})
           const loginData = response.data
           if (loginData === "invalid"){
             setErrMsg("Invalid Credentials")

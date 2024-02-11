@@ -1,3 +1,0 @@
-maybe too much effort and may just move all to aws  
--> bash script to change urls in prod, build vite and copy in prod, then run docker
-- docker-compose -f docker-compose.dev.yml up --build

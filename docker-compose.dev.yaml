@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile.dev
     # persist info.json data
     volumes:
-      - "./backend/info.json:/usr/src/app/backend/info.json"
+      - "./backend/data:/usr/src/app/backend/data"
     ports:
       - "8080:8080"
     restart: always

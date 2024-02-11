@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Navigate} from "react-router-dom"
 import axios from "axios"
 import { useState } from "react";
-
+import { backendUrl } from "../utils/backend";
 
 
 
@@ -23,7 +23,7 @@ const ProtectedRoute = ({children}) =>{
                 },
             });
 
-            const checkCookie = await api.get("/api/has_permission")
+            const checkCookie = await api.get(`${backendUrl}/api/has_permission`)
             setAdmin(checkCookie.data)
             setLoad(false)
 

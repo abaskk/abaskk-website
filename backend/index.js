@@ -3,9 +3,10 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
-
+const filePath = path.join(__dirname, 'data', 'info.json');
 const generateAccessToken = (username) => {
   return jwt.sign({username}, process.env.TOKEN_SECRET, { expiresIn: '6h' });
 }
@@ -50,7 +51,7 @@ app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
 
 app.get("/api/info", (req,res) => {
-  const info = fs.readFileSync("info.json");
+  const info = fs.readFileSync(filePath);
   const data = info.toString()
   res.send(JSON.parse(data))
   res.end()
@@ -104,7 +105,7 @@ app.post("/api/modify_data", (req,res) =>{
   }
 
   const modData = req.body["newJson"]
-  fs.writeFile('info.json', modData, function (err) {
+  fs.writeFile(filePath, modData, function (err) {
     if(err){
       console.log(err)
       res.send(false)

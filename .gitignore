@@ -1,3 +1,4 @@
 /backend/.env
-/frontend/letsencrypt
-/backend/info.json
+/backend/data
+/backend/node_modules
+/frontend/node_modules

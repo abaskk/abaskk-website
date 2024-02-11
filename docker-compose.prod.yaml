@@ -12,14 +12,14 @@ services:
     volumes:
       - "./frontend/dist:/var/www/html"
       - "./frontend/letsencrypt:/etc/letsencrypt"
-      - "./frontend/nginx/default.conf:/etc/nginx/sites-available/default:consistent"
-    
+      - "./frontend/nginx:/etc/nginx/sites-available/"
+  
   backend: 
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
     # persist info.json data
     volumes:
-      - "./backend/info.json:/usr/src/app/backend/info.json"
+      - "./backend/data:/usr/src/app/backend/data"
     ports:
       - '8080:80'
