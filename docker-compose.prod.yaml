@@ -12,7 +12,7 @@ services:
     volumes:
       - "./frontend/dist:/var/www/html"
       - "./frontend/letsencrypt:/etc/letsencrypt"
-      - "./frontend/nginx:/etc/nginx/sites-available/"
+      - "./frontend/nginx/default.conf:/etc/nginx/sites-available/default:consistent"
   
   backend: 
     build:
